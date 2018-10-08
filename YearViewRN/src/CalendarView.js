@@ -81,7 +81,7 @@ class CalendarView extends React.Component<Props> {
         }}
       >
         <Text style={{ fontSize: 11, marginBottom: 10 }}>
-          {this.props.month} {this.props.year}
+          {this.props.month}
         </Text>
         {dateArr.map((week, index) => {
           return (

@@ -50,11 +50,17 @@ class CalendarViewController: UIViewController {
         let nOfDays = Calendar.current.range(of: Calendar.Component.day, in: Calendar.Component.month, for: date)!
         var stackIndex = 0
         var tempIndex = 0
-        for i in -startDay.weekday!...nOfDays.count {
+        var totalNOfDays = nOfDays.count
+        
+        while totalNOfDays % 7 != 0 {
+            totalNOfDays += 1
+        }
+        
+        for i in (-startDay.weekday! + 2 )...totalNOfDays{
             let component: UIView
-            if i > 0 {
+            if i > 0 && i <= nOfDays.count {
                 let label = UILabel(frame: CGRect.zero)
-                label.font = UIFont.systemFont(ofSize: 8)
+                label.font = UIFont.systemFont(ofSize: 7)
                 label.text = "\(i)"
                 component = label
             }else{
